@@ -1,0 +1,8 @@
+stages:
+  - deploy_db
+
+test:
+  stage: deploy_db
+  script: echo "Deploy database to galera"
+  tags:
+    - kbd
