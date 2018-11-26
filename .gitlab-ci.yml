@@ -5,6 +5,6 @@ test:
   stage: deploy_db
   script:
     - echo "Deploy database to galera"
-    - "sqlplus64 $bd_user/$bd_password@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=ora1.elka.pw.edu.pl)(Port=1521))(CONNECT_DATA=(SID=iais))) @script.sql"
+    - ./script.sql
   tags:
     - kbd
