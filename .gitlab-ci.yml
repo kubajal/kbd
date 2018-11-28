@@ -5,6 +5,6 @@ test:
   stage: deploy_db
   script:
     - echo "Deploy database to galera"
-    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @script.sql
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_db.sql
   tags:
     - kbd
