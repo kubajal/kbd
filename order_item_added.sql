@@ -2,14 +2,17 @@ create or replace trigger order_item_added
 before insert on order_items
 for each row
 declare
-    order_item_product_version orders%ROWTYPE;
-    ord_val number(6,2);
+    products_count number;
+    price number;
+    total number;
 begin
-    select oi.products_count, pv.price into ord_val
-        from order_items oi
-        join product_versions pv
-        on oi.product_id = pv.product_id
-        and oi.version_id = pv.version_id;
-        
+    select pv.price into price
+        from product_versions pv
+        where pv.product_id = :new.product_id
+        and pv.version_id = :new.version_id;
+    total := price * :new.products_count;
+    update orders
+    set orders.order_value = orders.order_value+ total
+    where orders.order_id = :new.order_id;
 end;
 /
