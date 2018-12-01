@@ -10,4 +10,4 @@ test:
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @script.sql
 
   tags:
-    - kbd
+    - kbd-1
