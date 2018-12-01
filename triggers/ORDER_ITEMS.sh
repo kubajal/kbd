@@ -1,6 +1,3 @@
-
-sqlplus64 $bd_user/$bd_password@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=ora1.elka.pw.edu.pl)(Port=1521))(CONNECT_DATA=(SID=iais)))
-
 create or replace trigger order_item_added
 before insert on order_items
 for each row
