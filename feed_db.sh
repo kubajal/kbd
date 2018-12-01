@@ -1,8 +1,17 @@
 generate_number()
 {
-	n=$(((RANDOM % $1) + $2))
-	echo $n
+	if [ $1 -eq "1" ]; then
+		echo "$2"
+	else
+		echo "$(((RANDOM % $1) + $2))"
+	fi
 }
+
+generate_date()
+{
+	echo "to_timestamp('`date -d "$((RANDOM%1+$1))-$((RANDOM%12+1))-$((RANDOM%28+1)) $((RANDOM%23+1)):$((RANDOM%59+1)):$((RANDOM%59+1))" '+%Y-%m-%d %H:%M:%S'`')"
+}
+
 
 client_ids=()
 
@@ -32,10 +41,10 @@ i=1
 while [ $i -lt 100 ]
 do
 	id="`generate_number 8999 1000`"
-	index_client="`generate_number 100 1`"
+	index_client="`generate_number 99 1`"
 	client_id="${client_ids[$index_client]}"
-	date_received=`date -d "$((RANDOM%1+2018))-$((RANDOM%12+1))-$((RANDOM%28+1)) $((RANDOM%23+1)):$((RANDOM%59+1)):$((RANDOM%59+1))" '+%Y-%m-%d %H:%M:%S'`
-	echo "insert into orders values ($id, $client_id, '$date_received');"
+	date_received=`generate_date 2018`
+	echo "insert into orders values ($id, $client_id, $date_received);"
 	order_ids=("$id" "${order_ids[@]}")
 
 	i=$(( $i + 1 ))
@@ -47,11 +56,6 @@ while read -r line; do
 	echo "insert into products values ($i, '$name');"
 	i=$((i + 1))
 done < "foods"
-
-generate_date()
-{
-	date -d "$((RANDOM%1+$1))-$((RANDOM%12+1))-$((RANDOM%28+1)) $((RANDOM%23+1)):$((RANDOM%59+1)):$((RANDOM%59+1))" '+%Y-%m-%d %H:%M:%S'
-}
 
 declare -a product_versions
 
@@ -70,7 +74,7 @@ do
 	for v in $(eval echo "{1..$random}")
 	do
 		date=`generate_date $((2015 + $v))`
-		echo "insert into product_versions values ($id, $v, 'version $v', $price1.$price2, '$date', $available);"
+		echo "insert into product_versions values ($id, $v, 'version $v', $price1.$price2, $date, $available);"
 	done
 	product_versions[$i]=$random
 	i=$(($i + 1))
