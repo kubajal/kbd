@@ -89,14 +89,8 @@
     <column>
       <name>DATE_CREATED</name>
       <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>time_zone</key>
-            <value class="java.lang.String">LOCAL TIME ZONE</value>
-          </entry>
-        </attributeValues>
         <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>TIMESTAMP</typeName>
+          <typeName>DATE</typeName>
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>

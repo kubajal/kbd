@@ -3,7 +3,7 @@
   <name>CLIENTS</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>CLIENT_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -186,7 +186,7 @@
       <name>CLIENTS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
+          <name>CLIENT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>CLIENTS</name>
             <schemaName>SCHEMA1</schemaName>
@@ -214,7 +214,7 @@
       <name>CLIENTS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>CLIENT_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>

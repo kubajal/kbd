@@ -3,7 +3,7 @@
   <name>PRODUCTS</name>
   <columns>
     <column>
-      <name>ID</name>
+      <name>PRODUCT_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -48,7 +48,7 @@
       <name>PRODUCTS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID</name>
+          <name>PRODUCT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>PRODUCTS</name>
             <schemaName>SCHEMA1</schemaName>
@@ -76,7 +76,7 @@
       <name>PRODUCTS_PK</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>ID</expressionSource>
+          <expressionSource>PRODUCT_ID</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
       </columnExpressions>
