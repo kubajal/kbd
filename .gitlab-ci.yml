@@ -9,7 +9,7 @@ test:
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_db.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @triggers/ORDER_ITEMS.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @feed_db.sql
-    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @tests/adding_order.sh
+    - sh tests/adding_order.sh
 
   tags:
     - kbd-1
