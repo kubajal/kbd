@@ -1,7 +1,7 @@
-result="`sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @tests/adding_order.sql`"
+export result="`echo EXIT | sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @tests/adding_order.sql`"
 check=`echo $result | grep "128.03"`
 if [ "$check" = "" ]; then
-    echo "TEST FAILED: wrong order value"
+	    echo "FAILED: wrong order value"
 else
-    echo "TEST PASSED: order value test passed"
+        echo "TESTOK: order value test passed"
 fi
