@@ -4,4 +4,4 @@ if [ $check = "" ]; then
     echo "FAILED: wrong order value"
 else
     echo "TESTOK: order value test passed"
-fi<
+fi
