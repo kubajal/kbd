@@ -7,7 +7,7 @@ else
 fi
 
 export result="`echo EXIT | sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @tests/available.sql`"
-check=`echo $result | grep "98"`
+check=`echo $result | grep "1109"`
 if [ "$check" = "" ]; then
 	    echo "FAILED: wrong order value"
 else
