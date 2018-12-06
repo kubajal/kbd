@@ -29,7 +29,6 @@ test() {
                 echo "TEST FAILED"
                 echo "Log of the test:"
                 echo "$result";
-                exit 1;
         else
                 echo "TEST PASSED"
         fi
