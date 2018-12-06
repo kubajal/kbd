@@ -1,6 +1,6 @@
 -- DELETE
 
-create or replace trigger order_item_added
+create or replace trigger order_item_deleted
 before delete on order_items
 for each row
 begin
