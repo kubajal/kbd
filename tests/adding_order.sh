@@ -41,6 +41,7 @@ test_suite()
 {
         test "Inserting into ORDER_ITEMS should subtract from PRODUCT_VERSIONS.AVAILABLE" "@tests/available.sql" "1109"
         test "Inserting into ORDER_ITEMS should set proper ORDERS.ORDER_VALUE" "@tests/order_value.sql" "128.03"
+        test "Inserting into ORDER_ITEMS item with PRODUCT_COUNT bigger than AVAILABLE should throw error" "@tests/products_count.sql" "ORA-20001" # Not enough products available. Rolling back order.
 }
 
 test_suite
