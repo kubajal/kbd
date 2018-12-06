@@ -2,21 +2,21 @@ test_start()
 {
         spaces="                                               "
         args="$2"
-        printf "==================================================================================================\n"
-        printf "|                                           Test                                                 |\n"
-        printf "==================================================================================================\n"
+        printf "======================================================================================================================\n"
+        printf "|                                           Test                                                                     |\n"
+        printf "======================================================================================================================\n"
         printf "|%-96s|\n" "$1"
         printf "|CLI args %-87s|\n" "$args"
-        printf "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n"
+        printf "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n"
 }
 
 test_end()
 {
-        printf "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n"
-        printf "|                                                                                                |\n"
-        printf "==================================================================================================\n"
-        printf "|%-96s|\n" "$1 has ended"
-        printf "==================================================================================================\n"
+        printf "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\/\/\/\/\/\/\/\/\/\//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\n"
+        printf "|                                                                                                                    |\n"
+        printf "======================================================================================================================\n"
+        printf "|%-116s|\n" "$1 has ended"
+        printf "======================================================================================================================\n"
 }
 
 test() {
@@ -41,7 +41,8 @@ test_suite()
 {
         test "Inserting into ORDER_ITEMS should subtract from PRODUCT_VERSIONS.AVAILABLE" "@tests/available.sql" "1109"
         test "Inserting into ORDER_ITEMS should set proper ORDERS.ORDER_VALUE" "@tests/order_value.sql" "128.03"
-        test "Inserting into ORDER_ITEMS item with PRODUCT_COUNT bigger than AVAILABLE should throw error" "@tests/products_count.sql" "ORA-20001" # Not enough products available. Rolling back order.
+        test "Inserting into ORDER_ITEMS item with PRODUCT_COUNT bigger than ORDERS.AVAILABLE should throw error" "@tests/products_count_too_big.sql" "ORA-20001" # Not enough products available. Rolling back order.
+        test "Deleting from ORDER_ITEMS should add to ORDERS.AVAILABLE" "@tests/products_count_restore.sql" "ORA-20001" # Not enough products available. Rolling back order.
 }
 
 test_suite
