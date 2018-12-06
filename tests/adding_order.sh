@@ -41,3 +41,5 @@ test_suite()
 {
         test "Inserting into ORDER_ITEMS should subtract from PRODUCT_VERSIONS.AVAILABLE" "@tests/available.sql" "1109"
 }
+
+test_suite
