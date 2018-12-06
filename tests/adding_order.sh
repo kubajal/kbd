@@ -1,19 +1,43 @@
-export result="`echo EXIT | sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @tests/order_value.sql`"
-check=`echo $result | grep "128.03"`
-if [ "$check" = "" ]; then
-        echo "TEST FAILED: wrong order value"
-        echo "Log of the test:"
-        echo "$result";
-else
-        echo "TEST PASSEd: order value test passed"
-fi
+test_start()
+{
+        spaces="                                               "
+        args="$2"
+        printf "=================================================\n"
+        printf "|                    Test                       |\n"
+        printf "=================================================\n"
+        printf "|%-47s|\n" "$1"
+        printf "|CLI args %-38s|\n" "$args"
+        printf "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\n"
+}
 
-export result="`echo EXIT | sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @tests/available.sql`"
-check=`echo $result | grep "1109"`
-if [ "$check" = "" ]; then
-        echo "TEST FAILED: wrong number of available products."
-        echo "Log of the test:"
-        echo "$result";
-else
-        echo "TEST PASSED: order value test passed"
-fi
+test_end()
+{
+        printf "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ \n"
+        printf "|                                               |\n"
+        printf "=================================================\n"
+        printf "|%-47s|\n" "$1 has ended"
+        printf "=================================================\n"
+}
+
+test() {
+
+        test_start "$1" "$2"
+
+        export result="`echo EXIT | sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais $2`"
+        check=`echo $result | grep "$3"`
+        if [ "$check" = "" ]; then
+                echo "TEST FAILED"
+                echo "Log of the test:"
+                echo "$result";
+        else
+                echo "TEST PASSED"
+        fi
+        test_end "$1"
+        printf "\n"
+        printf "\n"
+}
+
+test_suite()
+{
+        test "Inserting into ORDER_ITEMS should subtract from PRODUCT_VERSIONS.AVAILABLE" "@tests/available.sql" "1109"
+}
