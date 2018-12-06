@@ -5,17 +5,17 @@ test_start()
         printf "==================================================================================================\n"
         printf "|                                           Test                                                 |\n"
         printf "==================================================================================================\n"
-        printf "|%-97s|\n" "$1"
-        printf "|CLI args %-76s|\n" "$args"
+        printf "|%-96s|\n" "$1"
+        printf "|CLI args %-87s|\n" "$args"
         printf "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\n"
 }
 
 test_end()
 {
         printf "/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ \n"
-        printf "|                                               |\n"
+        printf "|                                                                                                |\n"
         printf "==================================================================================================\n"
-        printf "|%-97s|\n" "$1 has ended"
+        printf "|%-96s|\n" "$1 has ended"
         printf "==================================================================================================\n"
 }
 
@@ -40,6 +40,7 @@ test() {
 test_suite()
 {
         test "Inserting into ORDER_ITEMS should subtract from PRODUCT_VERSIONS.AVAILABLE" "@tests/available.sql" "1109"
+        test "Inserting into ORDER_ITEMS should set proper ORDERS.ORDER_VALUE" "@tests/order_value.sql" "128.03"
 }
 
 test_suite
