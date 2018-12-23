@@ -29,7 +29,7 @@ do
 	phone1="`generate_number 899 100`"
 	phone2="`generate_number 899 100`"
 	phone3="`generate_number 899 100`"
-	echo "insert into clients values ($id, '$zip', $house_number, '$first_name', '$last_name', '$city', '$street', '$phone1$phone2$phone3');"
+	echo "insert into clients values ($id, '$first_name', '$last_name', '$phone1$phone2$phone3', '$house_number, '$street', '$city', '$zip');"
 	client_ids=( "$id" "${client_ids[@]}")
 
 	i=$(( $i + 1 ))
