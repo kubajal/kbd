@@ -27,3 +27,5 @@ test:
   script:
     - echo "Testing DB..."
     - bash tests/adding_order.sh
+  tags:
+    - kbd-1
