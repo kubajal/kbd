@@ -54,12 +54,6 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Name or short description of the version</value>
-        </entry>
-      </properties>
     </column>
     <column>
       <name>PRICE</name>
@@ -94,12 +88,6 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">When the version was created</value>
-        </entry>
-      </properties>
     </column>
     <column>
       <name>AVAILABLE</name>
@@ -192,7 +180,7 @@
     </constraint>
     <constraint class="oracle.javatools.db.CheckConstraint">
       <name>CHECK_PRICE_NONNEGATIVE</name>
-      <checkCondition>PRICE  &gt; 0</checkCondition>
+      <checkCondition>PRICE  &gt;= 0</checkCondition>
       <enabled>true</enabled>
     </constraint>
   </constraints>

@@ -22,56 +22,6 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>ZIP</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Integer">5</value>
-          </entry>
-          <entry>
-            <key>unit</key>
-            <value class="java.lang.String">CHAR</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>CHAR</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Clients address - zip code</value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>HOUSE_NUMBER</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>precision</key>
-            <value class="java.lang.String">4</value>
-          </entry>
-          <entry>
-            <key>scale</key>
-            <value class="java.lang.Integer">0</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>NUMBER</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Clients address - house number</value>
-        </entry>
-      </properties>
-    </column>
-    <column>
       <name>FIRST_NAME</name>
       <dataTypeUsage>
         <attributeValues>
@@ -85,12 +35,6 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Clients first name</value>
-        </entry>
-      </properties>
     </column>
     <column>
       <name>LAST_NAME</name>
@@ -106,54 +50,6 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Clients last name</value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>CITY</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">30</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Clients address - city</value>
-        </entry>
-      </properties>
-    </column>
-    <column>
-      <name>STREET</name>
-      <dataTypeUsage>
-        <attributeValues>
-          <entry>
-            <key>size</key>
-            <value class="java.lang.Long">30</value>
-          </entry>
-        </attributeValues>
-        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
-          <typeName>VARCHAR2</typeName>
-        </dataTypeID>
-      </dataTypeUsage>
-      <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Clients address - street</value>
-        </entry>
-      </properties>
     </column>
     <column>
       <name>PHONE</name>
@@ -173,12 +69,74 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Clients phone number</value>
-        </entry>
-      </properties>
+    </column>
+    <column>
+      <name>HOUSE_NUMBER</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">4</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Integer">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>STREET</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>CITY</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+    </column>
+    <column>
+      <name>ZIP</name>
+      <dataTypeUsage>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Integer">5</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">CHAR</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <typeName>CHAR</typeName>
+        </dataTypeID>
+      </dataTypeUsage>
+      <notNull>true</notNull>
     </column>
   </columns>
   <constraints>
@@ -198,7 +156,7 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>CLIENTS_PK</name>
+        <name>CLIENTS_PK_I</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>CLIENTS</name>
           <schemaName>SCHEMA1</schemaName>
@@ -208,10 +166,20 @@
         <type>INDEX</type>
       </indexID>
     </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CHECK_PHONE_FORMAT</name>
+      <checkCondition>REGEXP_LIKE(PHONE,&apos;^\d{5}$&apos;)</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CHECK_ZIP_CODE_FORMAT</name>
+      <checkCondition>REGEXP_LIKE(ZIP,&apos;^\d{5}$&apos;)</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
   </constraints>
   <indexes>
     <index>
-      <name>CLIENTS_PK</name>
+      <name>CLIENTS_PK_I</name>
       <columnExpressions>
         <columnExpression>
           <expressionSource>CLIENT_ID</expressionSource>

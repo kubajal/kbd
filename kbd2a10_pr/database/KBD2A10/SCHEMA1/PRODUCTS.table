@@ -35,12 +35,6 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>true</notNull>
-      <properties>
-        <entry>
-          <key>Comment</key>
-          <value class="java.lang.String">Name of the product</value>
-        </entry>
-      </properties>
     </column>
   </columns>
   <constraints>
@@ -60,7 +54,7 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>PRODUCTS_PK</name>
+        <name>PRODUCTS_PK_I</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>PRODUCTS</name>
           <schemaName>SCHEMA1</schemaName>
@@ -73,7 +67,7 @@
   </constraints>
   <indexes>
     <index>
-      <name>PRODUCTS_PK</name>
+      <name>PRODUCTS_PK_I</name>
       <columnExpressions>
         <columnExpression>
           <expressionSource>PRODUCT_ID</expressionSource>

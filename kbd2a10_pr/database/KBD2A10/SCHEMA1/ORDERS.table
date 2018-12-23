@@ -8,7 +8,7 @@
         <attributeValues>
           <entry>
             <key>precision</key>
-            <value class="java.lang.String">10</value>
+            <value class="java.lang.String">6</value>
           </entry>
           <entry>
             <key>scale</key>
@@ -22,7 +22,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>ID_CLIENT</name>
+      <name>CLIENT_ID</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -58,6 +58,12 @@
         </dataTypeID>
       </dataTypeUsage>
       <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Total value of order</value>
+        </entry>
+      </properties>
     </column>
     <column>
       <name>DATE_ORDERED</name>
@@ -92,7 +98,7 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>ORDERS_PK</name>
+        <name>ORDERS_PK_I</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>ORDERS</name>
           <schemaName>SCHEMA1</schemaName>
@@ -103,10 +109,10 @@
       </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>ORDERS_FK1</name>
+      <name>ORDERS_CLIENTS_FK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>ID_CLIENT</name>
+          <name>CLIENT_ID</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>ORDERS</name>
             <schemaName>SCHEMA1</schemaName>
@@ -131,7 +137,20 @@
   </constraints>
   <indexes>
     <index>
-      <name>ORDERS_PK</name>
+      <name>CLIENT_ID_FK_I</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>CLIENT_ID</expressionSource>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <schema>
+        <name>SCHEMA1</name>
+      </schema>
+      <systemGenerated>false</systemGenerated>
+    </index>
+    <index>
+      <name>ORDERS_PK_I</name>
       <columnExpressions>
         <columnExpression>
           <expressionSource>ORDER_ID</expressionSource>
