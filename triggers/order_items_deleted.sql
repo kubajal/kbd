@@ -9,7 +9,7 @@ begin
     update product_versions
     set product_versions.available = product_versions.available + :old.products_count
     where product_versions.product_id = :old.product_id
-        and product_versions.version_id = :old.version_id;
+        and product_versions.version = :old.version;
 
 end;
 /
