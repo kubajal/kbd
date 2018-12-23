@@ -1,40 +1,48 @@
 msg() {
-        echo "$1" | figlet $2
+	if [ "$2" = "" ]; then
+		echo "$1" | toilet --filter gay -f slant -t
+	else
+		echo "$1" | toilet "$2"
+	fi
 }
+
+i=0;
 
 test_start()
 {
-        spaces="                                               "
-        args="$2"
-        msg "============="
+        echo "=================================================================================================="
+        echo "= ********************************************************************************************** ="
+	msg "-- Test $i --> $3"
+	args="$2"
         printf "%-116s\n" "$1"
         printf "CLI args %-109s\n" "$args"
-        echo "=============================================================================="
 }
 
 test_end()
 {
-        echo "=============================================================================="
-        printf "%-118s\n" "$1 has ended"
-        echo "=============================================================================="
+	if [ "$3" = "FAILED" ]; then
+		
+		echo "Log of the test:"
+		echo "$result";
+	fi
+        echo "= ********************************************************************************************** ="
+        echo "=================================================================================================="
+	printf "\n\n\n"
 }
 
 test() {
-
-        test_start "$1" "$2"
-
+	i=$(($i+1))
         export result="`echo EXIT | sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais $2`"
         check=`echo $result | grep "$3"`
         if [ "$check" = "" ]; then
-                msg "TEST FAILED" "-c"
+                status="FAILED"
                 echo "Log of the test:"
                 echo "$result";
         else
-                msg "TEST PASSED" "-c"
+                status="PASSED"
         fi
-        test_end "$1"
-        echo "\n"
-        echo "\n"
+        test_start "$1" "$2" "$status"
+        test_end "$1" "$status"
 }
 
 test_suite()
@@ -46,3 +54,4 @@ test_suite()
 }
 
 test_suite
+
