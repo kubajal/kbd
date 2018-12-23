@@ -18,7 +18,6 @@ feed:
   stage: feed_db
   script:
     - echo "Feeding data into DB..."
-    - bash generate_data/generate_data.sh > feed_db.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @feed_db.sql
   tags:
     - kbd-1
