@@ -140,6 +140,16 @@
     </column>
   </columns>
   <constraints>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CHECK_PHONE_FORMAT</name>
+      <checkCondition>REGEXP_LIKE(PHONE,&apos;^\d{9}$&apos;)</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CHECK_ZIP_CODE_FORMAT</name>
+      <checkCondition>REGEXP_LIKE(ZIP,&apos;^\d{5}$&apos;)</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
     <constraint class="oracle.javatools.db.PKConstraint">
       <name>CLIENTS_PK</name>
       <columnIDs>
@@ -165,16 +175,6 @@
         <schemaName>SCHEMA1</schemaName>
         <type>INDEX</type>
       </indexID>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>CHECK_PHONE_FORMAT</name>
-      <checkCondition>REGEXP_LIKE(PHONE,&apos;^\d{5}$&apos;)</checkCondition>
-      <enabled>true</enabled>
-    </constraint>
-    <constraint class="oracle.javatools.db.CheckConstraint">
-      <name>CHECK_ZIP_CODE_FORMAT</name>
-      <checkCondition>REGEXP_LIKE(ZIP,&apos;^\d{5}$&apos;)</checkCondition>
-      <enabled>true</enabled>
     </constraint>
   </constraints>
   <indexes>
