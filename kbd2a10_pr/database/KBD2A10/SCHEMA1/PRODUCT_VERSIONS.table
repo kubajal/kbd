@@ -22,7 +22,7 @@
       <notNull>true</notNull>
     </column>
     <column>
-      <name>VERSION_ID</name>
+      <name>VERSION</name>
       <dataTypeUsage>
         <attributeValues>
           <entry>
@@ -132,7 +132,7 @@
       <name>PRODUCT_VERSIONS_PK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
-          <name>VERSION_ID</name>
+          <name>VERSION</name>
           <parent class="oracle.javatools.db.NameBasedID">
             <name>PRODUCT_VERSIONS</name>
             <schemaName>SCHEMA1</schemaName>
@@ -154,7 +154,7 @@
       </columnIDs>
       <enabled>true</enabled>
       <indexID class="oracle.javatools.db.NameBasedID">
-        <name>PRODUCT_VERSIONS_PK</name>
+        <name>PRODUCT_VERSIONS_PK_I</name>
         <parent class="oracle.javatools.db.NameBasedID">
           <name>PRODUCT_VERSIONS</name>
           <schemaName>SCHEMA1</schemaName>
@@ -165,7 +165,7 @@
       </indexID>
     </constraint>
     <constraint class="oracle.javatools.db.FKConstraint">
-      <name>PRODUCT_VERSIONS_FK1</name>
+      <name>PRODUCT_VERSIONS_PRODUCTS_FK</name>
       <columnIDs>
         <columnID class="oracle.javatools.db.NameBasedID">
           <name>PRODUCT_ID</name>
@@ -190,13 +190,31 @@
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CHECK_PRICE_NONNEGATIVE</name>
+      <checkCondition>PRICE  &gt; 0</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
   </constraints>
   <indexes>
     <index>
-      <name>PRODUCT_VERSIONS_PK</name>
+      <name>PRODUCT_ID_FK_I</name>
       <columnExpressions>
         <columnExpression>
-          <expressionSource>VERSION_ID</expressionSource>
+          <expressionSource>PRODUCT_ID</expressionSource>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <schema>
+        <name>SCHEMA1</name>
+      </schema>
+      <systemGenerated>false</systemGenerated>
+    </index>
+    <index>
+      <name>PRODUCT_VERSIONS_PK_I</name>
+      <columnExpressions>
+        <columnExpression>
+          <expressionSource>VERSION</expressionSource>
           <orderType>ASC</orderType>
         </columnExpression>
         <columnExpression>

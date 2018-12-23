@@ -569,7 +569,7 @@
         <semanticModel xmi:type='DI:SimpleSemanticModelBridge' typeInfo='SYMBOLIC'/>
         <size xmi:type='DI:Dimension' height='225.0' width='330.0'/>
       </contained>
-      <position xmi:type='DI:Point' x='1125.0' y='525.0'/>
+      <position xmi:type='DI:Point' x='1230.0' y='525.0'/>
       <property xmi:type='DI:Property' key='ShowHorizontalGridLines' value='false'/>
       <property xmi:type='DI:Property' key='showStereotype' value='false'/>
       <property xmi:type='DI:Property' key='FilterColumnsByText' value=''/>
@@ -1052,7 +1052,7 @@
         <semanticModel xmi:type='DI:SimpleSemanticModelBridge' typeInfo='sourcename'/>
       </contained>
       <contained xmi:type='DI:GraphNode' xmi:id='id1afd6bf8-56b6-4dbf-9a38-8d4faade608c'>
-        <position xmi:type='DI:Point' x='-14.5' y='47.224853515625'/>
+        <position xmi:type='DI:Point' x='-14.5' y='68.700927734375'/>
         <semanticModel xmi:type='DI:SimpleSemanticModelBridge' typeInfo='stereotype'/>
       </contained>
       <contained xmi:type='DI:GraphNode' xmi:id='idb2b18058-82c3-4590-a45b-feb14b658e1f'>
@@ -1091,7 +1091,7 @@
         <semanticModel xmi:type='DI:SimpleSemanticModelBridge' typeInfo='sourcename'/>
       </contained>
       <contained xmi:type='DI:GraphNode' xmi:id='id3758b888-4737-4fe7-bf7f-959a06c1dd16'>
-        <position xmi:type='DI:Point' x='-14.5' y='45.4521484375'/>
+        <position xmi:type='DI:Point' x='-14.5' y='66.92822265625'/>
         <semanticModel xmi:type='DI:SimpleSemanticModelBridge' typeInfo='stereotype'/>
       </contained>
       <contained xmi:type='DI:GraphNode' xmi:id='id86c0c14e-771f-4c3b-b068-bc1a30f1767a'>
@@ -1117,7 +1117,7 @@
       <property xmi:type='DI:Property' key='font' value='SansSerif,plain,11'/>
       <property xmi:type='DI:Property' key='ShowForeignKeyOwnership' value='true'/>
       <semanticModel xmi:type='DI:CoreSemanticModelBridge' element='DB:N:CONSTRAINT:PRODUCT_VERSIONS_FK1:N:TABLE:PRODUCT_VERSIONS:SCHEMA:SCHEMA1:DBObjectName:PRODUCT_VERSIONS_FK1:Provider:73e335d1-452e-4557-84cd-23307f7afee6'/>
-      <waypoint xmi:type='DI:Point' x='1125.0' y='637.5'/>
+      <waypoint xmi:type='DI:Point' x='1230.0' y='637.5'/>
       <waypoint xmi:type='DI:Point' x='1020.0' y='637.5'/>
     </contained>
     <contained xmi:type='DI:GraphEdge' xmi:id='id47a119df-0e93-4f08-b300-632e622f131f' anchor='id60aa14ac-7d72-44a0-a5f0-ba3c9b3983b2 idd7a00a33-8123-42a3-ad24-6ea9a459ad0b'>
