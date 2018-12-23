@@ -1,16 +1,31 @@
 stages:
   - deploy_db
+  - feed_db
+  - test_db
 
-test:
+deploy:
   stage: deploy_db
   script:
-    - echo "Deploy database to galera"
+    - echo "Deploying database..."
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @delete_tables.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_db.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @triggers/order_items_deleted.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @triggers/order_items_added.sql
-    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @feed_db.sql
-    - bash tests/adding_order.sh
+  tags:
+    - kbd-1
 
+feed:
+  stage: feed_db
+  script:
+    - echo "Feeding data into DB..."
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @feed_db.sql
+  tags:
+    - kbd-1
+
+test:
+  stage: test_db
+  script:
+    - echo "Testing DB..."
+    - bash tests/adding_order.sh
   tags:
     - kbd-1
