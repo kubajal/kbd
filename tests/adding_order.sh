@@ -1,26 +1,25 @@
 msg() {
-        echo "$1" | figlet
+        echo "$1" | figlet $2
 }
 
 test_start()
 {
         spaces="                                               "
         args="$2"
-        msg "=============n"
-        msg "|   Test    |\n"
-        msg "=============n"
+        msg "============="
+        msg "Test" "-c"
+        msg "============="
         printf "%-116s8\n" "$1"
         printf "CLI args %-109s\n" "$args"
-        msg "\/\/\/\/\/\/\n"
+        msg "\/\/\/\/\/\/"
 }
 
 test_end()
 {
-        msg "/\/\/\/\/\/\/\n"
-        msg "|            \n"
-        msg "=============\n"
+        msg "/\/\/\/\/\/\/"
+        msg "============="
         printf "%-118s\n" "$1 has ended"
-        msg "=============\n"
+        msg "============="
 }
 
 test() {
@@ -30,11 +29,11 @@ test() {
         export result="`echo EXIT | sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais $2`"
         check=`echo $result | grep "$3"`
         if [ "$check" = "" ]; then
-                msg "TEST FAILED"
+                msg "TEST FAILED" "-c"
                 echo "Log of the test:"
                 echo "$result";
         else
-                msg "TEST PASSED"
+                msg "TEST PASSED" "-c"
         fi
         test_end "$1"
         echo "\n"
