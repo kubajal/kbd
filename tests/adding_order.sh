@@ -1,5 +1,5 @@
 msg() {
-        printf $1 | figlet
+        echo "$1" | figlet
 }
 
 test_start()
