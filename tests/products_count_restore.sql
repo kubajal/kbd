@@ -7,6 +7,6 @@ insert into order_items values(5, 1, 126, 6)
 delete from order_items where product_id = 1 and version_id = 126 and order_id = 5
 /
 select * from product_versions where product_id = 1
-    and version_id = 126
+    and version = 126
     and available = 54321;
 /
