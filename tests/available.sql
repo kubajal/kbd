@@ -9,6 +9,6 @@ insert into order_items values(2, 1, 123, 2)
 commit
 /
 select * from product_versions where product_id = 1
-    and version_id = 123
+    and version = 123
     and available = 1109;
 /
