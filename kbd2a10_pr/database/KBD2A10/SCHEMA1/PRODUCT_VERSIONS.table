@@ -179,6 +179,11 @@
       </referenceID>
     </constraint>
     <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CHECK_AVAILABLE_NONNGEGATIVE</name>
+      <checkCondition>AVAILABLE &gt;= 0</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
       <name>CHECK_PRICE_NONNEGATIVE</name>
       <checkCondition>PRICE  &gt;= 0</checkCondition>
       <enabled>true</enabled>

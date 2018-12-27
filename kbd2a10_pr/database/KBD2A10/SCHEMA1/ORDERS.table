@@ -134,6 +134,11 @@
         <type>CONSTRAINT</type>
       </referenceID>
     </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <name>CHECK_ORDER_VALUE_NONNEGATIVE</name>
+      <checkCondition>ORDER_VALUE &gt;= 0</checkCondition>
+      <enabled>true</enabled>
+    </constraint>
   </constraints>
   <indexes>
     <index>
