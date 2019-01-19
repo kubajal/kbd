@@ -6,7 +6,7 @@ insert into product_versions values(1, 44, 'restore PRODUCTS_COUNT', 1.11, to_da
 /
 insert into order_items values(4, 1, 44, 6)
 /
-delete from order_items where product_id = 1 and version_id = 44 and order_id = 4
+delete from order_items where product_id = 1 and version = 44 and order_id = 4
 /
 select * from product_versions where product_id = 1
     and version = 44
