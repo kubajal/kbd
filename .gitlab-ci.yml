@@ -9,6 +9,7 @@ deploy:
     - echo "Deploying database..."
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @delete_tables.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_db.sql
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_views.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @triggers/order_item_deleted.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @triggers/order_item_added.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @triggers/order_added.sql
