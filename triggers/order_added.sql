@@ -5,7 +5,7 @@ begin
 
     if(:new.order_value is null)
     then
-        :new.order_value = 0;
+        :new.order_value0 := 0;
     end if;                           
 end;
 /
