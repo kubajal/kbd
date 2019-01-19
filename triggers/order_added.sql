@@ -7,3 +7,6 @@ begin
         :new.order_value := 0;
     end if;
 end;
+/
+commit;
+/

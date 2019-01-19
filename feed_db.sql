@@ -97,7 +97,9 @@ insert into clients values (4811, 'Harley', 'Darwin', '703904261', '8363', 'Whis
 insert into clients values (3827, 'Liam', 'Irwin', '301555339', '9955', 'Midway Lane', 'Holbrook', '38216');
 insert into clients values (2803, 'Arthur', 'Tita', '974698104', '5590', 'Culham Lane', 'Binalong', '40060');
 insert into clients values (3156, 'Blake', 'Posy', '124106851', '7098', 'Ensign Way', 'Abermain', '11164');
-
+/
+commit;
+/
 Insert into KBD2A10.ORDERS (ORDER_ID,CLIENT_ID,DATE_ORDERED) values ('504','3827',to_date('18/01/20','RR/MM/DD'));
 Insert into KBD2A10.ORDERS (ORDER_ID,CLIENT_ID,DATE_ORDERED) values ('505','9044',to_date('18/10/02','RR/MM/DD'));
 Insert into KBD2A10.ORDERS (ORDER_ID,CLIENT_ID,DATE_ORDERED) values ('506','6964',to_date('18/01/14','RR/MM/DD'));
@@ -1173,7 +1175,9 @@ Insert into KBD2A10.ORDERS (ORDER_ID,CLIENT_ID,DATE_ORDERED) values ('500','3839
 Insert into KBD2A10.ORDERS (ORDER_ID,CLIENT_ID,DATE_ORDERED) values ('501','2261',to_date('18/03/16','RR/MM/DD'));
 Insert into KBD2A10.ORDERS (ORDER_ID,CLIENT_ID,DATE_ORDERED) values ('502','7285',to_date('18/08/19','RR/MM/DD'));
 Insert into KBD2A10.ORDERS (ORDER_ID,CLIENT_ID,DATE_ORDERED) values ('503','3480',to_date('18/03/14','RR/MM/DD'));
-
+/
+commit;
+/
 insert into products values (1, 'bacon');
 insert into products values (2, 'beef');
 insert into products values (3, 'chicken');
@@ -1392,6 +1396,9 @@ insert into products values (215, 'packet of cheese');
 insert into products values (216, 'punnet of strawberries');
 insert into products values (217, 'tin of baked beans');
 insert into products values (218, 'tub of ice cream');
+/
+commit;
+/
 insert into product_versions values (1, 1, 'version 1', 5.26, to_date('2016-05-06 03:19:17', 'YYYY-MM-DD HH24:MI:SS'), 2700);
 insert into product_versions values (2, 1, 'version 1', 8.18, to_date('2016-10-28 14:44:12', 'YYYY-MM-DD HH24:MI:SS'), 1800);
 insert into product_versions values (3, 1, 'version 1', 11.41, to_date('2016-09-02 16:35:44', 'YYYY-MM-DD HH24:MI:SS'), 2600);
@@ -1849,7 +1856,9 @@ insert into product_versions values (217, 2, 'version 2', 6.41, to_date('2017-05
 insert into product_versions values (218, 1, 'version 1', 0.94, to_date('2016-06-22 11:54:19', 'YYYY-MM-DD HH24:MI:SS'), 1300);
 insert into product_versions values (218, 2, 'version 2', 0.94, to_date('2017-12-10 18:55:50', 'YYYY-MM-DD HH24:MI:SS'), 1300);
 insert into product_versions values (218, 3, 'version 3', 0.94, to_date('2018-06-26 08:13:08', 'YYYY-MM-DD HH24:MI:SS'), 1300);
-
+/
+commit;
+/
 Insert into KBD2A10.ORDER_ITEMS (ORDER_ID,PRODUCT_ID,VERSION,PRODUCTS_COUNT) values ('480','46','1','10');
 Insert into KBD2A10.ORDER_ITEMS (ORDER_ID,PRODUCT_ID,VERSION,PRODUCTS_COUNT) values ('481','200','3','10');
 Insert into KBD2A10.ORDER_ITEMS (ORDER_ID,PRODUCT_ID,VERSION,PRODUCTS_COUNT) values ('482','24','2','70');
