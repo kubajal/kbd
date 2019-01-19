@@ -6,7 +6,7 @@ AS select first_name, last_name, trade, yr as "year", mnt as "month"
         group by (client_id, extract(year from date_ordered), extract(month from date_ordered)))
     on clients.client_id = cid;
 
-CREATEOR REPLACE  VIEW CURRENT_PRICES
+CREATE OR REPLACE VIEW CURRENT_PRICES
 AS SELECT 
     products.name, date_cr, tmp.ver
 FROM
