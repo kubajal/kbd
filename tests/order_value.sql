@@ -12,5 +12,5 @@ commit
 /
 -- ----------------------------------------  + ----------------
 --                                                         128,03
-select * from orders where order_id = 1 and order_value = 128.03;
+select * from orders where order_id = 2 and order_value = 128.03;
 /
