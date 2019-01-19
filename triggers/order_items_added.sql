@@ -10,7 +10,7 @@ declare
 begin
 
     select count(*) into does_product_version_exist from product_versions where :new.product_id = product_id and :new.version = version;
-    
+
     if(does_product_version_exist = 0)
     then
         RAISE_APPLICATION_ERROR( -20001,
@@ -25,7 +25,7 @@ begin
     if(available - :new.products_count < 0)
     then
     RAISE_APPLICATION_ERROR( -20002,
-                             'Not enough products available. Rolling back order.');
+                             'Not enough products available.');
     end if;
 
 -- 'order_value' column in ORDERS table
@@ -45,3 +45,4 @@ begin
         and product_versions.version = :new.version;
 
 end;
+/
