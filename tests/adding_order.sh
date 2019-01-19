@@ -20,11 +20,9 @@ test_start()
 
 test_end()
 {
-	if [ "$3" = "FAILED" ]; then
 		
-		echo "Log of the test:"
-		echo "$result";
-	fi
+        echo "Log of the test:"
+        echo "$result";
         echo "= ********************************************************************************************** ="
         echo "=================================================================================================="
 	printf "\n\n\n"
@@ -35,11 +33,11 @@ test() {
         export result="`echo EXIT | sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais $2`"
         check=`echo $result | grep "$3"`
         if [ "$check" = "" ]; then
-                status="FAILED"
+                status="FAIL"
                 echo "Log of the test:"
                 echo "$result";
         else
-                status="PASSED"
+                status="PASS"
         fi
         test_start "$1" "$2" "$status"
         test_end "$1" "$status"
