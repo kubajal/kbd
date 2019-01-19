@@ -4,7 +4,9 @@ drop table order_items cascade constraints;
 drop table products cascade constraints;
 drop table product_versions cascade constraints;
 
-drop trigger order_added;
-drop trigger order_item_added;
-drop trigger order_item_deleted;
+drop trigger AFTER_DELETE_ORDER_ITEM;
+drop trigger AFTER_INSERT_ORDER_ITEM;
+drop trigger BEFORE_INSERT_ORDER;
+drop trigger BEFORE_INSERT_ORDER_ITEM;
+drop trigger BEFORE_INSERT_PRODUCT_VERSION;
 commit;
