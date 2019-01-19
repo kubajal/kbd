@@ -186,12 +186,51 @@ COMMENT ON TABLE PRODUCTS IS 'Dictionary of products';
 
 COMMENT ON TABLE PRODUCT_VERSIONS IS 'Versions of products - price and stock availability';
 
+COMMENT ON COLUMN CLIENTS.CLIENT_ID IS 'Clients identification number';
+
+COMMENT ON COLUMN CLIENTS.FIRST_NAME IS 'Clients first name';
+
+COMMENT ON COLUMN CLIENTS.LAST_NAME IS 'Clients last name';
+
+COMMENT ON COLUMN CLIENTS.PHONE IS 'Clients phone number';
+
+COMMENT ON COLUMN CLIENTS.HOUSE_NUMBER IS 'Clients house number';
+
+COMMENT ON COLUMN CLIENTS.STREET IS 'Clients street';
+
+COMMENT ON COLUMN CLIENTS.CITY IS 'Clients city';
+
+COMMENT ON COLUMN CLIENTS.ZIP IS 'Clients ZIP code';
+
+COMMENT ON COLUMN ORDERS.ORDER_ID IS 'Orders identification number';
+
+COMMENT ON COLUMN ORDERS.CLIENT_ID IS 'Orders client';
+
 COMMENT ON COLUMN ORDERS.ORDER_VALUE IS 'Total value of order';
 
 COMMENT ON COLUMN ORDERS.DATE_ORDERED IS 'Date when the order was received';
 
+COMMENT ON COLUMN ORDER_ITEMS.ORDER_ID IS 'Order identification number';
+
+COMMENT ON COLUMN ORDER_ITEMS.PRODUCT_ID IS 'Product identification number';
+
+COMMENT ON COLUMN ORDER_ITEMS.VERSION IS 'Products version';
+
 COMMENT ON COLUMN ORDER_ITEMS.PRODUCTS_COUNT IS 'How much of this product was ordered';
 
+COMMENT ON COLUMN PRODUCTS.PRODUCT_ID IS 'Products identification number
+';
+
+COMMENT ON COLUMN PRODUCTS.NAME IS 'Products name';
+
+COMMENT ON COLUMN PRODUCT_VERSIONS.PRODUCT_ID IS 'Product identification number';
+
+COMMENT ON COLUMN PRODUCT_VERSIONS.VERSION IS 'Products version';
+
+COMMENT ON COLUMN PRODUCT_VERSIONS.VERSION_NAME IS 'Product versions name';
+
 COMMENT ON COLUMN PRODUCT_VERSIONS.PRICE IS 'Unit price';
+
+COMMENT ON COLUMN PRODUCT_VERSIONS.DATE_CREATED IS 'Date when version was created';
 
 COMMENT ON COLUMN PRODUCT_VERSIONS.AVAILABLE IS 'How many left in stock';
