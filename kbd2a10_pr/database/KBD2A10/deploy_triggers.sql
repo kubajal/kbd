@@ -1,3 +1,5 @@
+set echo on;
+
 CREATE TRIGGER AFTER_DELETE_ORDER_ITEM 
 -- Lowers price of the corresponding orders and returns number of items from this products stock.
 AFTER DELETE ON ORDER_ITEMS 
@@ -146,3 +148,6 @@ BEGIN
     end if;
 END;
 /
+set echo off;
+
+
