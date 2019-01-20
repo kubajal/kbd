@@ -1,5 +1,6 @@
 create or replace PROCEDURE startWWW(max_number IN NUMBER DEFAULT 20)
 -- PL/SQL Procedure generating:
+-- Month income
 -- The most profitable products
 -- Best clients
 -- product that price have changed during last month
@@ -26,6 +27,20 @@ BEGIN
     HTP.TITLE('Raport');
     HTP.HEADCLOSE;  -- </head>
     HTP.BODYOPEN;   -- <body>
+
+    --Month income
+    HTP.HEADER(1, 'Last month income', 'center');
+    HTP.PARA;
+        HTP.TABLEOPEN;
+        HTP.TABLEROWOPEN;
+            HTP.TABLEHEADER('Month income');
+        HTP.TABLEROWCLOSE;
+        FOR product IN (select sum(order_value) as month_income from orders where date_ordered between add_months(trunc(sysdate,'mm'),-1) and last_day(add_months(trunc(sysdate,'mm'),-1))) LOOP
+            HTP.TABLEROWOPEN;
+                HTP.TABLEDATA(product.month_income);
+            HTP.TABLEROWCLOSE;
+        END LOOP;
+    HTP.TABLECLOSE;
 
     --The most profitable products
     HTP.HEADER(1, 'Most profitable products', 'center');
