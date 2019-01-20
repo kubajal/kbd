@@ -1,10 +1,7 @@
 CREATE TRIGGER AFTER_DELETE_ORDER_ITEM 
+-- Lowers price of the corresponding orders and returns number of items from this products stock.
 AFTER DELETE ON ORDER_ITEMS 
 for each row
-declare
-    unit_price number;
-    price_sum number;
-    does_product_version_exist number;
 BEGIN
     -- lower the price of the order
     select pv.price into unit_price
@@ -25,6 +22,7 @@ END;
 /
 
 CREATE TRIGGER AFTER_INSERT_ORDER_ITEM 
+  -- Updates price of the corresponding orders and returns subtracts products from this products stock.
 AFTER INSERT ON ORDER_ITEMS 
 for each row
 declare
@@ -52,9 +50,15 @@ end;
 /
 
 CREATE TRIGGER BEFORE_INSERT_ORDER 
+-- Check if order_value is not equal to zero or null. Optionally set order_id to the next value from the sequence.
 BEFORE INSERT ON ORDERS 
 for each row
 begin
+    if :new.order_value != 0
+    then
+        RAISE_APPLICATION_ERROR( -20004,
+                             'Value of a newly created order must be zero.');
+    end if;
     if :new.order_value is null
     then
         :new.order_value := 0;
@@ -67,6 +71,7 @@ end;
 /
 
 CREATE TRIGGER BEFORE_INSERT_ORDER_ITEM 
+-- Check there is enough of this product.
 BEFORE INSERT ON ORDER_ITEMS 
 for each row
 declare
@@ -86,6 +91,7 @@ END;
 /
 
 CREATE TRIGGER BEFORE_INSERT_PRODUCT 
+-- Optionally set product_id to the value from the sequence.
 BEFORE INSERT ON PRODUCTS
 for each row
 BEGIN
@@ -97,6 +103,7 @@ END;
 /
 
 CREATE TRIGGER BEFORE_INSERT_PRODUCT_VERSION 
+-- Check if date_created is after current timestamp, if there is non-negative value of available products, optionally set date_created, available, version_name to non-null values. Optionally set version to the value from the sequence.
 BEFORE INSERT ON PRODUCT_VERSIONS
 for each row
 declare
