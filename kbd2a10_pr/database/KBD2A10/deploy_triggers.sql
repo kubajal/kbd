@@ -146,20 +146,3 @@ BEGIN
     end if;
 END;
 /
-
-CREATE TRIGGER BEFORE_UPDATE_PRODUCT_VERSION 
-BEFORE INSERT ON PRODUCT_VERSIONS
-for each row
-declare
-    tmp ROWTYPE;
-begin
-    select (order_items.products_count * (:old.price - :new.price)) as diff, orders.order_id 
-    into tmp 
-    from orders 
-    join order_items 
-    on order_items.product_id = :new.product_id and order_items.version = :new.version;
-    update orders
-        set order_value = order_value - tmp.diff
-        where order_id = tmp.order_id;
-end;
-/
