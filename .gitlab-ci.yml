@@ -11,6 +11,8 @@ deploy:
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_db.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_triggers.sql
     - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_views.sql
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/sequences.sql
+
   tags:
     - kbd-1
 
