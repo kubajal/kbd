@@ -2,6 +2,10 @@ CREATE TRIGGER AFTER_DELETE_ORDER_ITEM
 -- Lowers price of the corresponding orders and returns number of items from this products stock.
 AFTER DELETE ON ORDER_ITEMS 
 for each row
+declare
+    unit_price number;
+    price_sum number;
+    does_product_version_exist number;
 BEGIN
     -- lower the price of the order
     select pv.price into unit_price
@@ -141,4 +145,21 @@ BEGIN
       :new.version := highest_version + 1;
     end if;
 END;
+/
+
+CREATE TRIGGER BEFORE_UPDATE_PRODUCT_VERSION 
+BEFORE INSERT ON PRODUCT_VERSIONS
+for each row
+declare
+    tmp ROWTYPE;
+begin
+    select (order_items.products_count * (:old.price - :new.price)) as diff, orders.order_id 
+    into tmp 
+    from orders 
+    join order_items 
+    on order_items.product_id = :new.product_id and order_items.version = :new.version;
+    update orders
+        set order_value = order_value - tmp.diff
+        where order_id = tmp.order_id;
+end;
 /
