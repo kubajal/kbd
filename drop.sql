@@ -16,6 +16,5 @@ drop view HIGHEST_GAIN_PRODUCTS;
 
 drop sequence client_id_seq;
 drop sequence order_id_seq;
-drop sequence client_id_seq;
 drop sequence product_id_seq;
 commit;
