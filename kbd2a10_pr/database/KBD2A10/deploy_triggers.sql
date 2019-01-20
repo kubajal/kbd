@@ -59,6 +59,10 @@ begin
     then
         :new.order_value := 0;
     end if;
+    if :new.order_id is null
+    then
+        :new.order_id := order_id_seq.nextval;
+    end if;
 end;
 /
 
