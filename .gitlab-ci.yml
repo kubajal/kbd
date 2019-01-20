@@ -7,6 +7,12 @@ deploy:
   stage: deploy_db
   script:
     - echo "Deploying database..."
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @drop.sql
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_db.sql
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_triggers.sql
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_views.sql
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/deploy_procedures.sql
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @kbd2a10_pr/database/KBD2A10/sequences.sql
 
   tags:
     - kbd-1
@@ -15,6 +21,7 @@ feed:
   stage: feed_db
   script:
     - echo "Feeding data into DB..."
+    - sqlplus64 $db_user/$db_password@ora1.elka.pw.edu.pl/iais @feed_db.sql
   tags:
     - kbd-1
 
