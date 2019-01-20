@@ -9,4 +9,8 @@ drop trigger AFTER_INSERT_ORDER_ITEM;
 drop trigger BEFORE_INSERT_ORDER;
 drop trigger BEFORE_INSERT_ORDER_ITEM;
 drop trigger BEFORE_INSERT_PRODUCT_VERSION;
+
+drop view CLIENT_TRADE_BY_MONTH;
+drop view CURRENT_PRICES;
+drop view HIGHEST_GAIN_PRODUCTS;
 commit;
