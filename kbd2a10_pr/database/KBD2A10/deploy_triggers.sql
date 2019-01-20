@@ -99,7 +99,19 @@ END;
 CREATE TRIGGER BEFORE_INSERT_PRODUCT_VERSION 
 BEFORE INSERT ON PRODUCT_VERSIONS
 for each row
+declare
+    highest_version number;
 BEGIN
+    if :new.date_created > SYSDATE
+    then
+        RAISE_APPLICATION_ERROR( -20001,
+                             'Product version creation date cant be later than current time.');
+    end if;
+    if :new.available < 0
+    then
+        RAISE_APPLICATION_ERROR( -20003,
+                             'Available products count cant be lower than zero.');
+    end if;
     if :new.date_created is null
     then
       :new.date_created := sysdate;
@@ -111,6 +123,15 @@ BEGIN
     if :new.version_name is null
     then
       :new.version_name := '';
+    end if;
+    if :new.version is null
+    then
+        select max(version) into highest_version from product_versions where product_id = :new.product_id;
+        if highest_version is null
+        then
+            highest_version := -1;
+        end if;
+      :new.version := highest_version + 1;
     end if;
 END;
 /
