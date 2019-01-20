@@ -6,7 +6,7 @@ insert into product_versions values(1, 55, 'test PRODUCT_VERSIONS.price update',
 /
 insert into order_items values(5, 1, 55, 5) -- 5 * 2.00 = 10.00
 /
-update order_items set price = 1.11 where product_id = 1 and version = 55;
+update product_versions set price = 1.11 where product_id = 1 and version = 55;
 /
 select * from orders where order_id = 5;
 /
