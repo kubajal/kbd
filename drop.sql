@@ -13,4 +13,7 @@ drop trigger BEFORE_INSERT_PRODUCT_VERSION;
 drop view CLIENT_TRADE_BY_MONTH;
 drop view CURRENT_PRICES;
 drop view HIGHEST_GAIN_PRODUCTS;
+
+drop sequence client_id_seq;
+drop sequence order_id_seq;
 commit;
