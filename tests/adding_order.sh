@@ -49,6 +49,7 @@ test_suite()
         test "Inserting into ORDER_ITEMS should set proper ORDERS.ORDER_VALUE" "@tests/order_value.sql" "80.7"
         test "Inserting into ORDER_ITEMS item with PRODUCT_COUNT bigger than ORDERS.AVAILABLE should throw error" "@tests/products_count_too_big.sql" "ORA-20002" # Not enough products available. Rolling back order.
         test "Deleting from ORDER_ITEMS should add to ORDERS.AVAILABLE" "@tests/products_count_restore.sql" "54321" # Adding to ORDERS.AVAILABLE when an order item is deleted.
+        test "Updating PRODUCT_VERSIONS.price should update corresponding ORDERS.order_value" "@tests/update_price.sql" "5.55"
 }
 
 test_suite
