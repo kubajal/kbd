@@ -85,6 +85,16 @@ BEGIN
 END;
 /
 
+CREATE TRIGGER BEFORE_INSERT_PRODUCT 
+BEFORE INSERT ON PRODUCTS 
+BEGIN
+  if :new.id is null
+  then
+    :new.id := product_id_seq.nextval;
+  end if;
+END;
+/
+
 CREATE TRIGGER BEFORE_INSERT_PRODUCT_VERSION 
 BEFORE INSERT ON PRODUCT_VERSIONS
 for each row
