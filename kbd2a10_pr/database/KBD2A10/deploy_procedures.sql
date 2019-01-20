@@ -50,30 +50,15 @@ BEGIN
             HTP.TABLEHEADER('Product Name');
             HTP.TABLEHEADER('Profit');
         HTP.TABLEROWCLOSE;
-        FOR product IN (select * from (
-        Select name, the_highest_value
-        From(
-        Select name, sum(the_highest_value) as the_highest_value 
-        From(
-        select name, products_count*price as the_highest_value
-        From(
-        select t3.product_id, t3.name, t3.products_count, t4.price
-        From(
-        select t1.product_id as product_id, t1.name as name, t2.products_count as products_count
-        from 
-        (select product_id, name from products)  t1
-        inner join
-        (select product_id, products_count from order_items) t2
-        on t1.product_id=t2.product_id) t3
-        inner join
-        (select product_id, price from product_versions) t4
-        on t3.product_id=t4.product_id) t5 ) t6
-        group by name) t7
-        order by the_highest_value desc
-        )where ROWNUM <= max_number) LOOP
+        FOR product IN (
+            select * from(
+            select name, sum(products_count*price) as income
+            from (select *  from (select product_id, price, name from products join product_versions using (product_id)) join order_items using (product_id))
+            group by name
+            order by income desc) where ROWNUM <= max_number) LOOP
             HTP.TABLEROWOPEN;
                 HTP.TABLEDATA(product.name);
-                HTP.TABLEDATA(product.the_highest_value);
+                HTP.TABLEDATA(product.income);
             HTP.TABLEROWCLOSE;
         END LOOP;
     HTP.TABLECLOSE;
@@ -99,7 +84,7 @@ BEGIN
     HTP.TABLECLOSE;
 
     --Products that have hanged last month
-    HTP.HEADER(1, 'Products that have hanged last month', 'center');
+    HTP.HEADER(1, 'Products that have changed last month', 'center');
     HTP.PARA;
         HTP.TABLEOPEN;
         HTP.TABLEROWOPEN;
